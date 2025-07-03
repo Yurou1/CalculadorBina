@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora Binaria</title>
+  <link rel="stylesheet" href="calcucss.css">
+
+</head>
+<body>
+  <h1>Calculadora Binaria</h1>
+
+  <input type="text" id="bin1" placeholder="Primer número binario">
+  <select id="operador">
+    <option value="+">+</option>
+    <option value="-">−</option>
+    <option value="*">×</option>
+    <option value="/">÷</option>
+  </select>
+  <input type="text" id="bin2" placeholder="Segundo número binario">
+  <button onclick="calcular()">Calcular</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function calcular() {
+      const bin1 = document.getElementById("bin1").value.trim();
+      const bin2 = document.getElementById("bin2").value.trim();
+      const op = document.getElementById("operador").value;
+
+      // Validar binarios
+      if (!/^[01]+$/.test(bin1) || !/^[01]+$/.test(bin2)) {
+        document.getElementById("resultado").innerText = "❌ Solo se permiten números binarios (0 y 1)";
+        return;
+      }
+
+      const num1 = parseInt(bin1, 2);
+      const num2 = parseInt(bin2, 2);
+      let result;
+
+      switch (op) {
+        case "+":
+          result = num1 + num2;
+          break;
+        case "-":
+          result = num1 - num2;
+          break;
+        case "*":
+          result = num1 * num2;
+          break;
+        case "/":
+          if (num2 === 0) {
+            document.getElementById("resultado").innerText = "❌ División entre cero no permitida";
+            return;
+          }
+          result = Math.floor(num1 / num2); // División entera
+          break;
+        default:
+          result = 0;
+      }
+
+      // Mostrar resultado en binario
+      document.getElementById("resultado").innerText = `Resultado: ${result.toString(2)}`;
+    }
+  </script>
+</body>
+</html>
