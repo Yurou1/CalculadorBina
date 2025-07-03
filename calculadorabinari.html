@@ -5,8 +5,13 @@
   <title>Calculadora Binaria</title>
   <link rel="stylesheet" href="calcucss.css">
 
+
+  <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
+<div></div>
+<div>
   <h1>Calculadora Binaria</h1>
 
   <input type="text" id="bin1" placeholder="Primer número binario">
@@ -20,7 +25,30 @@
   <button onclick="calcular()">Calcular</button>
 
   <div id="resultado"></div>
+
   <script src="java.js" defer></script>
- 
+</div>
+
+
+
+
+
+  
+   <div class="calculator">
+    <h2>Calculadora Binaria</h2>
+    <input type="text" id="bin1" placeholder="Binario 1 (ej. 1010)">
+    <select id="operation">
+      <option value="add">Suma</option>
+      <option value="subtract">Resta</option>
+      <option value="multiply">Multiplicación</option>
+      <option value="divide">División</option>
+    </select>
+    <input type="text" id="bin2" placeholder="Binario 2 (ej. 0101)">
+    <button onclick="calculate()">Calcular</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script src="script.js" defer></script>
+</div>
 </body>
 </html>
